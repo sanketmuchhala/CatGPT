@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 15% 8%;
+    --foreground: 40 10% 92%;
+    --card: 220 12% 12%;
+    --card-foreground: 40 10% 92%;
+    --popover: 220 12% 10%;
+    --popover-foreground: 40 10% 92%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 220 15% 8%;
+    --secondary: 220 10% 18%;
+    --secondary-foreground: 40 10% 92%;
+    --muted: 220 10% 18%;
+    --muted-foreground: 40 5% 60%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 220 15% 8%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 40 10% 92%;
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 38 92% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Focus ring for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  /* Paw print watermark for assistant messages */
+  .paw-watermark {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23F59E0B' fill-opacity='0.03'%3E%3Cellipse cx='30' cy='45' rx='6' ry='8'/%3E%3Cellipse cx='18' cy='35' rx='5' ry='6' transform='rotate(-20 18 35)'/%3E%3Cellipse cx='42' cy='35' rx='5' ry='6' transform='rotate(20 42 35)'/%3E%3Cellipse cx='12' cy='22' rx='4' ry='5' transform='rotate(-30 12 22)'/%3E%3Cellipse cx='48' cy='22' rx='4' ry='5' transform='rotate(30 48 22)'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 120px 120px;
+  }
+
+  /* Scrollbar styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
